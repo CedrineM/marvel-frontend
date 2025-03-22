@@ -29,6 +29,10 @@ header .container > div:nth-child(odd) {
   width: 300px;
 }
 
+header .container > div:nth-child(3) {
+  text-align: right;
+}
+
 .logo {
   flex: 1;
   display: flex;
@@ -101,4 +105,169 @@ header .container > div:nth-child(odd) {
 
 .comic-object h2 {
   margin-bottom: 10px;
+}
+
+/*--------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+-----------------------------------------CHARACTERS_PAGE-----------------------------------------------------
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------*/
+
+.characters .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.characters .container section {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.characters .container > section:nth-child(1) {
+  display: flex;
+  justify-content: space-between;
+}
+
+.characters .container > section:nth-child(2) > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/*------------------------------------------------------------
+-------------------CHARACTER_COMPONENT--------------------------------
+--------------------------------------------------------------*/
+
+.character-object {
+  width: calc((100% - 30px) / 4);
+  height: 180px;
+  display: flex;
+  align-items: center;
+  background-color: beige;
+  border-radius: 5px;
+  text-decoration: none;
+  color: black;
+}
+
+.character-object > div {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+}
+
+.character-object-img {
+  width: 100px;
+  height: 150px;
+  flex-shrink: 0;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.character-object-text {
+  padding: 5px 10px;
+  width: calc(100% - 100px);
+}
+
+.character-object h2 {
+  margin-bottom: 10px;
+}
+
+/*--------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+-----------------------------------------SIGNUP_LOGIN/MODAL-----------------------------------------------------
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------*/
+.signup-login-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup-login-modal > div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 10px;
+  width: 500px;
+  padding: 30px;
+}
+
+.signup-login-modal .close-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: fit-content;
+  padding: 6px;
+  box-shadow: none;
+}
+
+.signup-login-modal form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 300px;
+}
+
+.signup-login-modal form .errorForm {
+  color: red;
+}
+
+.signup-login-modal form > input {
+  width: 270px;
+  height: 40px;
+  padding: 5px;
+  border: none;
+  border-bottom: rgba(44, 176, 186, 0.5) 1px solid;
+}
+
+.signup-login-modal form > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 5px;
+  margin-top: 10px;
+  width: 270px;
+}
+
+.signup-login-modal form > div div {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.signup-login-modal form > div div input {
+  transform: scale(2);
+  cursor: pointer;
+}
+
+.signup-login-modal p {
+  color: #999999;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.signup-login-modal form button {
+  width: 90%;
+  padding: 15px;
+  margin: 20px 0;
+}
+
+.signup-login-modal .link-signup-login {
+  font-size: 14px;
+  color: #2cb1ba;
+  cursor: pointer;
 }

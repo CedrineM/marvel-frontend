@@ -53,7 +53,7 @@ const Characters = () => {
   }, [filters, pages]);
 
   return isLoading ? (
-    <main className="comics">
+    <main className="characters">
       <div className="container">
         <p>
           En chargement .... Spider Man parcours la toile pour trouver ce que
@@ -62,11 +62,12 @@ const Characters = () => {
       </div>
     </main>
   ) : (
-    <main className="comics">
+    <main className="characters">
       <div className="container">
         <section>
           <div>
-            <span>Comics</span> <span>| {data.count} Personnages trouvés </span>
+            <span>Personnages</span>{" "}
+            <span>| {data.count} Personnages trouvés </span>
           </div>
           <div>
             <input
