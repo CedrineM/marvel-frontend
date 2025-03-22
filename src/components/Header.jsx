@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/logoMarvelBlack.png";
 import ButtonNavigate from "./ButtonNavigate";
 import { useState } from "react";
@@ -9,7 +9,7 @@ const Header = ({ isConnected, visible, setVisible, setConnect }) => {
   } else {
     document.body.style.overflow = "inherit";
   }
-
+  const navigate = useNavigate();
   const location = useLocation();
   const { pathname } = location;
 
@@ -69,6 +69,7 @@ const Header = ({ isConnected, visible, setVisible, setConnect }) => {
               className="disconnect-button"
               onClick={() => {
                 setConnect(null);
+                navigate("/");
               }}
             >
               Déconnexion

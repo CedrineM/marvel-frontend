@@ -3,11 +3,12 @@ import { useState, useEffect } from "react";
 import Comic from "../components/Comic";
 import Pagination from "../components/Pagination";
 
-const Comics = () => {
+const Comics = ({ isConnected, setVisible, visible }) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [filters, setFilters] = useState({ title: "", limit: "" });
   const [currentPage, setCurrentPage] = useState(1);
+  const [favorites, setFavorites] = useState([]);
 
   const handleChange = (event) => {
     setFilters({ ...filters, [event.target.name]: event.target.value });
@@ -15,6 +16,21 @@ const Comics = () => {
   };
 
   useEffect(() => {
+    const fetchFavorites = async () => {
+      try {
+        const favoriteResponse = await axios.get(
+          "https://site--backend-marvel--vphy6y45v8nk.code.run/favorites",
+          { headers: { Authorization: `Bearer ${isConnected}` } }
+        );
+        const tabFavorites = favoriteResponse.data.map((fav) => {
+          return fav.item._id;
+        });
+        setFavorites(tabFavorites);
+      } catch (error) {
+        console.log(error.response);
+      }
+    };
+    fetchFavorites();
     const fetchData = async () => {
       try {
         let url = `https://site--backend-marvel--vphy6y45v8nk.code.run/comics?page=${currentPage}`;
@@ -29,11 +45,11 @@ const Comics = () => {
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
-        console.log(response.error);
+        console.log(error.response);
       }
     };
     fetchData();
-  }, [filters, currentPage]);
+  }, [filters, currentPage, isConnected]);
 
   return isLoading ? (
     <main className="comics">
@@ -74,7 +90,17 @@ const Comics = () => {
         <section>
           <div>
             {data.results.map((comic) => {
-              return <Comic comic={comic} key={comic._id} />;
+              return (
+                <Comic
+                  comic={comic}
+                  key={comic._id}
+                  favorites={favorites}
+                  setFavorites={setFavorites}
+                  isConnected={isConnected}
+                  setVisible={setVisible}
+                  visible={visible}
+                />
+              );
             })}
           </div>
         </section>

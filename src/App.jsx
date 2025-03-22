@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import Comics from "./pages/Comics";
 import Home from "./pages/Home";
 import Characters from "./pages/Characters";
-import CharacterPage from "./pages/Character";
+import CharacterPage from "./pages/CharacterPages";
 import SignupLogin from "./components/SignupLogin";
 import Cookies from "js-cookie";
 import Favorites from "./pages/Favorites";
@@ -22,7 +22,7 @@ function App() {
   const setConnect = (token) => {
     if (token) {
       Cookies.set("token", token);
-      setIsConnected(true);
+      setIsConnected(token);
     } else {
       Cookies.remove("token");
       setIsConnected(false);
@@ -40,8 +40,26 @@ function App() {
       />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/comics" element={<Comics />} />
-        <Route path="/characters" element={<Characters />} />
+        <Route
+          path="/comics"
+          element={
+            <Comics
+              isConnected={isConnected}
+              setVisible={setVisible}
+              visible={visible}
+            />
+          }
+        />
+        <Route
+          path="/characters"
+          element={
+            <Characters
+              isConnected={isConnected}
+              setVisible={setVisible}
+              visible={visible}
+            />
+          }
+        />
         <Route path="/character/:id" element={<CharacterPage />} />
         <Route
           path="/favorites"

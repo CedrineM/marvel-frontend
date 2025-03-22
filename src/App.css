@@ -76,6 +76,7 @@ header .container > div:nth-child(3) {
 --------------------------------------------------------------*/
 
 .comic-object {
+  position: relative;
   width: calc((100% - 30px) / 4);
   height: 180px;
   display: flex;
@@ -105,6 +106,16 @@ header .container > div:nth-child(3) {
 
 .comic-object h2 {
   margin-bottom: 10px;
+}
+
+.comic-favorite-activated,
+.comic-favorite-disabled {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 20px;
+  color: #ec1d24;
+  cursor: pointer;
 }
 
 /*--------------------------------------------------------------------------------------------
@@ -140,6 +151,7 @@ header .container > div:nth-child(3) {
 --------------------------------------------------------------*/
 
 .character-object {
+  position: relative;
   width: calc((100% - 30px) / 4);
   height: 180px;
   display: flex;
@@ -171,6 +183,16 @@ header .container > div:nth-child(3) {
 
 .character-object h2 {
   margin-bottom: 10px;
+}
+
+.character-favorite-activated,
+.character-favorite-disabled {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 20px;
+  color: #ec1d24;
+  cursor: pointer;
 }
 
 /*--------------------------------------------------------------------------------------------
