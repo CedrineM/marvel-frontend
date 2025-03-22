@@ -1,40 +1,23 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Comic from "../components/Comic";
+import Pagination from "../components/Pagination";
 
 const Comics = () => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [filters, setFilters] = useState({ title: "", limit: "" });
-  const [pages, setPages] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const handleChange = (event) => {
     setFilters({ ...filters, [event.target.name]: event.target.value });
-    setPages(1);
-  };
-
-  const buttonPagination = () => {
-    const tabPages = [];
-    for (let i = 1; i <= Math.ceil(data.count / data.limit); i++) {
-      tabPages.push(i);
-    }
-    return tabPages;
-  };
-
-  const pagination = (page) => {
-    if (page === "next") {
-      setPages(pages + 1);
-    } else if (page === "previous") {
-      setPages(pages - 1);
-    } else {
-      setPages(page);
-    }
+    setCurrentPage(1);
   };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let url = `https://site--backend-marvel--vphy6y45v8nk.code.run/comics?page=${pages}`;
+        let url = `https://site--backend-marvel--vphy6y45v8nk.code.run/comics?page=${currentPage}`;
         if (filters.title) {
           url += `&title=${filters.title}`;
         }
@@ -50,7 +33,7 @@ const Comics = () => {
       }
     };
     fetchData();
-  }, [filters, pages]);
+  }, [filters, currentPage]);
 
   return isLoading ? (
     <main className="comics">
@@ -96,37 +79,12 @@ const Comics = () => {
           </div>
         </section>
         <section>
-          <button
-            disabled={pages === 1 && true}
-            onClick={() => {
-              pagination("previous");
-            }}
-          >
-            Prev
-          </button>
-          <div>
-            {buttonPagination().map((num) => {
-              return (
-                <button
-                  key={num}
-                  disabled={pages === num && true}
-                  onClick={() => {
-                    pagination(num);
-                  }}
-                >
-                  {num}
-                </button>
-              );
-            })}
-          </div>
-          <button
-            disabled={pages === Math.ceil(data.count / 10) && true}
-            onClick={() => {
-              pagination("next");
-            }}
-          >
-            Next
-          </button>
+          <Pagination
+            currentPage={currentPage}
+            total={data.count}
+            limit={data.limit}
+            onPageChange={(page) => setCurrentPage(page)}
+          />
         </section>
       </div>
     </main>
