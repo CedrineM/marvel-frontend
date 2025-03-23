@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'CaptainMarvel';
+    src: url('CaptainMarvel.eot');
+    src: url('CaptainMarvel.eot?#iefix') format('embedded-opentype'),
+        url('CaptainMarvel.woff2') format('woff2'),
+        url('CaptainMarvel.woff') format('woff'),
+        url('CaptainMarvel.ttf') format('truetype'),
+        url('CaptainMarvel.svg#CaptainMarvel') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

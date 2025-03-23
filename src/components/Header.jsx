@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import logo from "../assets/logoMarvelBlack.png";
+import logo from "../assets/logoMarvelWhite.png";
 import ButtonNavigate from "./ButtonNavigate";
-import { useState } from "react";
+import "./Header.css";
 
 const Header = ({ isConnected, visible, setVisible, setConnect }) => {
   if (visible.signup || visible.login) {
@@ -40,7 +40,7 @@ const Header = ({ isConnected, visible, setVisible, setConnect }) => {
     <header>
       <div className="container">
         <div>
-          <ButtonNavigate to={"/comics"}>Comics</ButtonNavigate>{" "}
+          <ButtonNavigate to={"/comics"}>Comics</ButtonNavigate>
           <span> | </span>
           <ButtonNavigate to={"/characters"}>Personnages</ButtonNavigate>
         </div>
@@ -55,33 +55,46 @@ const Header = ({ isConnected, visible, setVisible, setConnect }) => {
           {isConnected ? (
             <ButtonNavigate to={"/favorites"}>Favoris</ButtonNavigate>
           ) : (
-            <button
-              onClick={() => {
-                handleModalOnclick("favorites");
-              }}
-            >
-              Favoris
-            </button>
+            <div className="div-button-nav">
+              <button
+                class="button-nav"
+                onClick={() => {
+                  handleModalOnclick("favorites");
+                }}
+              >
+                <span> Favoris</span>
+              </button>
+            </div>
           )}
+
           <span> | </span>
           {isConnected ? (
-            <button
-              className="disconnect-button"
-              onClick={() => {
-                setConnect(null);
-                navigate("/");
-              }}
-            >
-              Déconnexion
-            </button>
+            <div className="div-button-nav">
+              <button
+                class="button-nav disconnect-button"
+                onClick={() => {
+                  setConnect(null);
+                  navigate("/");
+                }}
+              >
+                <span> Déconnexion</span>
+              </button>
+            </div>
           ) : (
-            <button
-              onClick={() => {
-                handleModalOnclick("toggleSignupLogin");
-              }}
-            >
-              Se connecter/S'inscrire
-            </button>
+            <div className="div-button-nav">
+              <button
+                class="button-nav"
+                onClick={() => {
+                  handleModalOnclick("toggleSignupLogin");
+                }}
+              >
+                <span>
+                  Connexion
+                  <br />
+                  Inscription
+                </span>
+              </button>
+            </div>
           )}
         </div>
       </div>

@@ -1,0 +1,77 @@
+@import url("../assets/variable.css");
+
+.div-button-nav {
+  position: relative;
+}
+
+.button-nav {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-family: "CaptainMarvel", sans-serif;
+  font-size: 13px;
+  background-color: transparent;
+  border: none;
+}
+
+.button-active-nav {
+  position: absolute;
+  width: 35px;
+  left: 12px;
+  bottom: 2px;
+  border-bottom: 3px solid var(--yellow);
+}
+
+.hidden {
+  display: none;
+}
+
+.button-nav span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  height: 35px;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  background: transparent;
+  transition: all 0.35s;
+}
+
+.button-nav span:before,
+.button-nav span:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  bottom: -100%;
+  left: 0;
+  background-color: var(--yellow);
+  transition: all 0.35s;
+}
+
+.button-nav span:after {
+  z-index: -1;
+}
+
+.button-nav span:before {
+  opacity: 0.5;
+}
+
+.button-nav span:after {
+  transition-delay: 0.2s;
+}
+
+.button-nav span:hover {
+  color: #000000;
+}
+
+.button-nav span:hover:before,
+.button-nav span:hover:after {
+  bottom: 0;
+}

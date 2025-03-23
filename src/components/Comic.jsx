@@ -41,30 +41,27 @@ const Comic = ({
   };
   return (
     <div className="comic-object">
-      {!favorites.includes(comic._id) ? (
-        <FaRegHeart
-          className="comic-favorite-activated"
-          onClick={handleAddRemoveFavorite}
-        />
-      ) : (
-        <FaHeart
-          className="comic-favorite-disabled"
-          onClick={handleAddRemoveFavorite}
-        />
-      )}
-
-      <div>
-        <div className="comic-object-img">
+      <div class="comic-card-inner">
+        <div className="card-front">
           <img
             src={`${comic.thumbnail.path}/portrait_uncanny.${comic.thumbnail.extension}`}
             alt={`image de couverture du comic ${comic.title}`}
           />
         </div>
-        <div className="comic-object-text">
-          <h2>{comic.title}</h2>
-          {comic.description && (
-            <p>{comic.description.slice(0, 110) + "..."}</p>
+        <div class="card-back">
+          {!favorites.includes(comic._id) ? (
+            <FaRegHeart
+              className="comic-favorite-activated"
+              onClick={handleAddRemoveFavorite}
+            />
+          ) : (
+            <FaHeart
+              className="comic-favorite-disabled"
+              onClick={handleAddRemoveFavorite}
+            />
           )}
+          <h2>{comic.title}</h2>
+          {comic.description && <p>{comic.description.slice(0, 70) + "..."}</p>}
         </div>
       </div>
     </div>

@@ -1,0 +1,35 @@
+@import url("../assets/variable.css");
+
+/*------------------------------------------------------------
+----------------------------HEADER--------------------------------
+--------------------------------------------------------------*/
+
+header {
+  background-color: var(--dark-red);
+  color: #ffffff;
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header .container > div:nth-child(odd) {
+  display: flex;
+  align-items: center;
+  width: 300px;
+}
+
+header .container > div:nth-child(3) {
+  justify-content: flex-end;
+}
+
+.logo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.logo > div {
+  width: 100px;
+}

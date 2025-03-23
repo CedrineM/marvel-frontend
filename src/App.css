@@ -1,8 +1,33 @@
+@import url("../src/assets/variable.css");
 /*--------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------
 -----------------------------------------BASIQUE_RULES-----------------------------------------------------
 ----------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------*/
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+}
+
+a {
+  font-family: "CaptainMarvel";
+  font-size: 16px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "CaptainMarvel";
+}
+
+h1 {
+  font-size: 30px;
+}
+
+h2,
+h3 {
+  font-size: 18px;
+}
 
 img {
   width: 100%;
@@ -16,42 +41,18 @@ img {
   width: 100%;
 }
 
-/*------------------------------------------------------------
-----------------------------HEADER--------------------------------
---------------------------------------------------------------*/
-
-header .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-header .container > div:nth-child(odd) {
-  width: 300px;
-}
-
-header .container > div:nth-child(3) {
-  text-align: right;
-}
-
-.logo {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.logo > div {
-  width: 100px;
-}
-
 /*--------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------
 -----------------------------------------COMICS_PAGE-----------------------------------------------------
 ----------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------*/
-
+.comics {
+  margin: 30px 0;
+}
 .comics .container {
   display: flex;
   flex-direction: column;
+  border-radius: 10px;
   align-items: center;
 }
 
@@ -67,6 +68,7 @@ header .container > div:nth-child(3) {
 
 .comics .container > section:nth-child(2) > div {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
 }
@@ -74,47 +76,58 @@ header .container > div:nth-child(3) {
 /*------------------------------------------------------------
 -------------------COMIC_COMPONENT--------------------------------
 --------------------------------------------------------------*/
-
 .comic-object {
-  position: relative;
-  width: calc((100% - 30px) / 4);
-  height: 180px;
-  display: flex;
-  align-items: center;
-  background-color: beige;
+  width: calc((100% - 50px) / 6);
+  height: 280px;
+  perspective: 1000px;
+  cursor: pointer;
+  overflow: hidden;
   border-radius: 5px;
 }
 
-.comic-object > div {
+.comic-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.comic-object:hover .comic-card-inner {
+  transform: rotateY(180deg);
+}
+
+.comic-card-inner .card-front,
+.comic-card-inner .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
   display: flex;
   align-items: center;
-  padding: 8px;
+  justify-content: center;
+  border-radius: 0.5rem;
 }
 
-.comic-object-img {
-  width: 100px;
-  height: 150px;
-  flex-shrink: 0;
-  border-radius: 2px;
-  overflow: hidden;
+.comic-card-inner .card-back {
+  flex-direction: column;
+  gap: 30px;
+  padding: 5px;
 }
 
-.comic-object-text {
-  padding: 5px 10px;
-  width: calc(100% - 100px);
-}
-
-.comic-object h2 {
-  margin-bottom: 10px;
+.comic-card-inner .card-back {
+  background: var(--dark-blue);
+  color: #fff;
+  transform: rotateY(180deg);
 }
 
 .comic-favorite-activated,
 .comic-favorite-disabled {
   position: absolute;
-  top: 2px;
-  right: 2px;
+  top: 5px;
+  right: 5px;
   font-size: 20px;
-  color: #ec1d24;
+  color: var(--ligth-red);
   cursor: pointer;
 }
 
@@ -123,7 +136,9 @@ header .container > div:nth-child(3) {
 -----------------------------------------CHARACTERS_PAGE-----------------------------------------------------
 ----------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------*/
-
+.characters {
+  margin: 30px 0;
+}
 .characters .container {
   display: flex;
   flex-direction: column;
@@ -151,48 +166,57 @@ header .container > div:nth-child(3) {
 --------------------------------------------------------------*/
 
 .character-object {
-  position: relative;
-  width: calc((100% - 30px) / 4);
-  height: 180px;
-  display: flex;
-  align-items: center;
-  background-color: beige;
-  border-radius: 5px;
-  text-decoration: none;
-  color: black;
-}
-
-.character-object > div {
-  display: flex;
-  align-items: center;
-  padding: 8px;
+  width: calc((100% - 50px) / 6);
+  height: 280px;
+  perspective: 1000px;
   cursor: pointer;
-}
-
-.character-object-img {
-  width: 100px;
-  height: 150px;
-  flex-shrink: 0;
-  border-radius: 2px;
   overflow: hidden;
+  border-radius: 5px;
 }
 
-.character-object-text {
-  padding: 5px 10px;
-  width: calc(100% - 100px);
+.character-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
 }
 
-.character-object h2 {
-  margin-bottom: 10px;
+.character-object:hover .character-card-inner {
+  transform: rotateY(180deg);
+}
+
+.character-card-inner .card-front,
+.character-card-inner .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+}
+
+.character-card-inner .card-back {
+  flex-direction: column;
+  gap: 30px;
+  padding: 5px;
+}
+
+.character-card-inner .card-back {
+  background: var(--dark-blue);
+  color: #fff;
+  transform: rotateY(180deg);
 }
 
 .character-favorite-activated,
 .character-favorite-disabled {
   position: absolute;
-  top: 2px;
-  right: 2px;
+  top: 5px;
+  right: 5px;
   font-size: 20px;
-  color: #ec1d24;
+  color: var(--ligth-red);
   cursor: pointer;
 }
 

@@ -44,6 +44,38 @@ const Character = ({
   const navigate = useNavigate();
   return (
     <div className="character-object">
+      <div class="character-card-inner">
+        <div className="card-front">
+          <img
+            src={`${character.thumbnail.path}/portrait_uncanny.${character.thumbnail.extension}`}
+            alt={`image du personnage ${character.name}`}
+          />
+        </div>
+        <div class="card-back">
+          {!favorites.includes(character._id) ? (
+            <FaRegHeart
+              className="character-favorite-activated"
+              onClick={handleAddRemoveFavorite}
+            />
+          ) : (
+            <FaHeart
+              className="character-favorite-disabled"
+              onClick={handleAddRemoveFavorite}
+            />
+          )}
+          <h2>{character.name}</h2>
+          {character.description && (
+            <p>{character.description.slice(0, 70) + "..."}</p>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Character;
+{
+  /* <div className="character-object">
       {!favorites.includes(character._id) ? (
         <FaRegHeart
           className="character-favorite-activated"
@@ -74,8 +106,5 @@ const Character = ({
           )}
         </div>
       </div>
-    </div>
-  );
-};
-
-export default Character;
+    </div> */
+}
