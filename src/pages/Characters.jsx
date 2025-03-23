@@ -27,7 +27,7 @@ const Characters = ({ isConnected, setVisible, visible }) => {
         });
         setFavorites(tabFavorites);
       } catch (error) {
-        console.log(error.response);
+        console.log(error.favoriteResponse);
       }
     };
     fetchFavorites();

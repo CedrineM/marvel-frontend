@@ -31,7 +31,7 @@ const Comic = ({
           { headers: { Authorization: `Bearer ${isConnected}` } }
         );
       } catch (error) {
-        console.log(response.error);
+        console.log(error);
       }
     } else {
       const copy = { ...visible };

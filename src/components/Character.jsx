@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
+import axios from "axios";
 
 const Character = ({
   character,
@@ -14,12 +15,12 @@ const Character = ({
   const handleAddRemoveFavorite = async () => {
     if (isConnected) {
       const copy = [...favorites];
-      const index = copy.indexOf(comic._id);
+      const index = copy.indexOf(character._id);
       if (index !== -1) {
         copy.splice(index, 1);
         setFavorites(copy);
       } else {
-        copy.push(comic._id);
+        copy.push(character._id);
         setFavorites(copy);
       }
 
@@ -31,7 +32,7 @@ const Character = ({
           { headers: { Authorization: `Bearer ${isConnected}` } }
         );
       } catch (error) {
-        console.log(response.error);
+        console.log(error);
       }
     } else {
       const copy = { ...visible };
@@ -39,8 +40,10 @@ const Character = ({
       setVisible(copy);
     }
   };
+
+  const navigate = useNavigate();
   return (
-    <Link className="character-object" to={`/character/${character._id}`}>
+    <div className="character-object">
       {!favorites.includes(character._id) ? (
         <FaRegHeart
           className="character-favorite-activated"
@@ -52,7 +55,12 @@ const Character = ({
           onClick={handleAddRemoveFavorite}
         />
       )}
-      <div>
+
+      <div
+        onClick={() => {
+          navigate(`/character/${character._id}`);
+        }}
+      >
         <div className="character-object-img">
           <img
             src={`${character.thumbnail.path}/portrait_uncanny.${character.thumbnail.extension}`}
@@ -66,7 +74,7 @@ const Character = ({
           )}
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 
