@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import axios from "axios";
 import ElementFav from "../components/ElementFav";
+import "./Favorites.css";
 
 const Favorites = ({ isConnected }) => {
   const [favoriteData, setFavoriteData] = useState(null);
@@ -37,35 +38,41 @@ const Favorites = ({ isConnected }) => {
     ) : (
       <main className="favorites">
         <div className="container">
-          <div className="fav-characters">
-            <h2>Personnages Favoris</h2>
-            {favoriteData.map((element) => {
-              if (element.type === "characters") {
-                return (
-                  <ElementFav
-                    key={element._id}
-                    element={element}
-                    isConnected={isConnected}
-                    setFavoriteRemove={setFavoriteRemove}
-                  />
-                );
-              }
-            })}
-          </div>
-          <div className="fav-comics">
-            <h2>Comis Favoris</h2>
-            {favoriteData.map((element) => {
-              if (element.type === "comics") {
-                return (
-                  <ElementFav
-                    key={element._id}
-                    element={element}
-                    isConnected={isConnected}
-                    setFavoriteRemove={setFavoriteRemove}
-                  />
-                );
-              }
-            })}
+          <div>
+            <div className="fav-characters">
+              <h2>Personnages Favoris</h2>
+              <div>
+                {favoriteData.map((element) => {
+                  if (element.type === "characters") {
+                    return (
+                      <ElementFav
+                        key={element._id}
+                        element={element}
+                        isConnected={isConnected}
+                        setFavoriteRemove={setFavoriteRemove}
+                      />
+                    );
+                  }
+                })}
+              </div>
+            </div>
+            <div className="fav-comics">
+              <h2>Comis Favoris</h2>
+              <div>
+                {favoriteData.map((element) => {
+                  if (element.type === "comics") {
+                    return (
+                      <ElementFav
+                        key={element._id}
+                        element={element}
+                        isConnected={isConnected}
+                        setFavoriteRemove={setFavoriteRemove}
+                      />
+                    );
+                  }
+                })}
+              </div>
+            </div>
           </div>
         </div>
       </main>

@@ -1,0 +1,46 @@
+/*--------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+-----------------------------------------FAVORITES/PAGE-----------------------------------------------------
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------*/
+
+.favorites {
+  margin: 30px 0;
+}
+
+.favorites .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.favorites .container > div {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.fav-characters,
+.fav-comics {
+  width: calc(100% / 2);
+}
+
+.fav-characters > div,
+.fav-comics > div {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+@media (max-width: 1200px) {
+  .favorites .container > div {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  .fav-characters,
+  .fav-comics {
+    width: 90%;
+  }
+}

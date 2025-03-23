@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Comic from "../components/Comic";
 import Pagination from "../components/Pagination";
+import "./Comics.css";
 
 const Comics = ({ isConnected, setVisible, visible }) => {
   const [data, setData] = useState(null);

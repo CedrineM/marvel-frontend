@@ -1,6 +1,7 @@
 import axios from "axios";
 import { FaHeart } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
+import "./Comic.css";
 
 const Comic = ({
   comic,

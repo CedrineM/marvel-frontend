@@ -1,0 +1,176 @@
+/*--------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+-----------------------------------------SIGNUP_LOGIN/MODAL-----------------------------------------------------
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------*/
+.signup-login-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--dark-blue-07);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+.signup-login-modal h1 {
+  color: #fff;
+}
+
+.signup-login-modal > div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--dark-red);
+  border-radius: 10px;
+  width: 500px;
+  height: 400px;
+  padding: 30px;
+}
+
+.signup-login-modal .close-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: fit-content;
+  padding: 6px;
+  box-shadow: none;
+}
+
+.signup-login-modal form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 300px;
+  margin-top: 30px;
+}
+
+.signup-login-modal form .errorForm {
+  color: #fff;
+}
+
+.signup-login-modal form > input {
+  width: 270px;
+  height: 40px;
+  padding: 5px;
+  border: none;
+  border-bottom: var(--yellow) 2px solid;
+  background-color: transparent;
+  color: #fff;
+}
+
+.signup-login-modal form > input::placeholder {
+  color: rgb(255, 255, 255, 0.8);
+}
+
+.signup-login-modal form > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 5px;
+  margin-top: 10px;
+  width: 270px;
+}
+
+.signup-login-modal form > div div {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.signup-login-modal form > div div input {
+  transform: scale(2);
+  cursor: pointer;
+}
+
+.signup-login-modal p {
+  color: #999999;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.button-submit {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-family: "CaptainMarvel", sans-serif;
+  font-size: 13px;
+  background-color: transparent;
+  border: none;
+}
+
+.button-submit span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  height: 35px;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  background: transparent;
+  transition: all 0.35s;
+}
+
+.button-submit span:before,
+.button-submit span:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  bottom: -100%;
+  left: 0;
+  background-color: var(--yellow);
+  transition: all 0.35s;
+}
+
+.button-submit span:after {
+  z-index: -1;
+}
+
+.button-submit span:before {
+  opacity: 0.5;
+}
+
+.button-submit span:after {
+  transition-delay: 0.2s;
+}
+
+.button-submit span:hover {
+  color: #000000;
+}
+
+.button-submit span:hover:before,
+.button-submit span:hover:after {
+  bottom: 0;
+}
+
+.signup-login-modal .link-signup-login {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.close-button {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}

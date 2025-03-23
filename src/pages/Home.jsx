@@ -1,12 +1,11 @@
-import ButtonNavigate from "../components/ButtonNavigate";
-import "../components/test.css";
-import imgTest from "../assets/ImageNotAvailable.jpg";
-
 const Home = () => {
   return (
-    <div>
-      <h1>Home</h1>
-    </div>
+    <main className="home">
+      <div className="container">
+        <h1>Bienvenue à toi !</h1>{" "}
+        <h2>Viens découvrire le monde fantastique de marvel</h2>
+      </div>
+    </main>
   );
 };
 

@@ -9,6 +9,7 @@ import CharacterPage from "./pages/CharacterPages";
 import SignupLogin from "./components/SignupLogin";
 import Cookies from "js-cookie";
 import Favorites from "./pages/Favorites";
+import Footer from "./components/Footer";
 
 // https://site--backend-marvel--vphy6y45v8nk.code.run/
 function App() {
@@ -60,7 +61,16 @@ function App() {
             />
           }
         />
-        <Route path="/character/:id" element={<CharacterPage />} />
+        <Route
+          path="/character/:id"
+          element={
+            <CharacterPage
+              isConnected={isConnected}
+              setVisible={setVisible}
+              visible={visible}
+            />
+          }
+        />
         <Route
           path="/favorites"
           element={<Favorites isConnected={isConnected} />}
@@ -73,6 +83,7 @@ function App() {
           setVisible={setVisible}
         />
       )}
+      <Footer />
     </Router>
   );
 }

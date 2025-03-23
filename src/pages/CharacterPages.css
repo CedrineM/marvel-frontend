@@ -1,0 +1,57 @@
+/*--------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+-----------------------------------------CHARACTERPAGES_PAGES-----------------------------------------------------
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------*/
+.character-page {
+  margin-top: 30px;
+}
+
+.character-page > .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.character-page > .container > section:nth-child(1) {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.character-page-img,
+.character-page-description {
+  width: calc((100% - 30px) / 2);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.character-page-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.character-page > section {
+  background-color: var(--yellow);
+  margin-top: 30px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.character-page > section > div > div {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+@media (max-width: 1200px) {
+  .character-page .container {
+    padding: 0 20px;
+  }
+  .character-page-description {
+    overflow: visible;
+  }
+}

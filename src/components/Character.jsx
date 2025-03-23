@@ -2,6 +2,9 @@ import { useNavigate } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 import axios from "axios";
+import "./Character.css";
+import ButtonNavigate from "./ButtonNavigate";
+import { FaArrowRight } from "react-icons/fa";
 
 const Character = ({
   character,
@@ -67,6 +70,9 @@ const Character = ({
           {character.description && (
             <p>{character.description.slice(0, 70) + "..."}</p>
           )}
+          <ButtonNavigate to={`/character/${character._id}`}>
+            <FaArrowRight />
+          </ButtonNavigate>
         </div>
       </div>
     </div>
@@ -74,37 +80,3 @@ const Character = ({
 };
 
 export default Character;
-{
-  /* <div className="character-object">
-      {!favorites.includes(character._id) ? (
-        <FaRegHeart
-          className="character-favorite-activated"
-          onClick={handleAddRemoveFavorite}
-        />
-      ) : (
-        <FaHeart
-          className="character-favorite-disabled"
-          onClick={handleAddRemoveFavorite}
-        />
-      )}
-
-      <div
-        onClick={() => {
-          navigate(`/character/${character._id}`);
-        }}
-      >
-        <div className="character-object-img">
-          <img
-            src={`${character.thumbnail.path}/portrait_uncanny.${character.thumbnail.extension}`}
-            alt={`image du personnage ${character.name}`}
-          />
-        </div>
-        <div className="character-object-text">
-          <h2>{character.name}</h2>
-          {character.description && (
-            <p>{character.description.slice(0, 110) + "..."}</p>
-          )}
-        </div>
-      </div>
-    </div> */
-}

@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
+import "./SignupLogin.css";
 
 const SignupLogin = ({ setConnect, visible, setVisible }) => {
   const [formData, setFormData] = useState({
@@ -125,7 +126,9 @@ const SignupLogin = ({ setConnect, visible, setVisible }) => {
             value={formData.password}
           />
           {errorMessage && <p className="errorForm">{errorMessage}</p>}
-          <button type="submit">Se connecter</button>
+          <button className="button-submit">
+            <span>Se connecter</span>
+          </button>
         </form>
         <p
           className="link-signup-login"
@@ -186,7 +189,9 @@ const SignupLogin = ({ setConnect, visible, setVisible }) => {
           />
           {errorMessage && <p className="errorForm">{errorMessage}</p>}
 
-          <button>S'inscrire</button>
+          <button className="button-submit">
+            <span>S'inscrire</span>
+          </button>
         </form>
         <p
           className="link-signup-login"

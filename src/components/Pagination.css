@@ -21,10 +21,10 @@
 .page-item.active:focus,
 .page-item.active:hover {
   z-index: 2;
-  color: black;
+  color: #fff;
   cursor: default;
-  background-color: #5cb85c;
-  border-color: #5cb85c;
+  background-color: var(--dark-red);
+  border-color: var(--dark-red);
 }
 .page-item.disabled,
 .page-item.disabled:focus,
@@ -40,15 +40,15 @@
   float: left;
   padding: 0.5rem 0.75rem;
   margin-left: -1px;
-  color: #5cb85c;
+  color: var(--dark-blue);
   text-decoration: none;
   background-color: #fff;
-  border: 1px solid #ddd;
+  border: 1px solid var(--dark-blue);
   cursor: pointer;
 }
 .page-item:focus,
 .page-item:hover {
-  color: #3d8b3d;
-  background-color: #eceeef;
-  border-color: #ddd;
+  color: black;
+  background-color: var(--yellow);
+  border-color: var(--yellow);
 }

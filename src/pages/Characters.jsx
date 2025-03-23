@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Character from "../components/Character";
 import Pagination from "../components/Pagination";
+import "./Characters.css";
 
 const Characters = ({ isConnected, setVisible, visible }) => {
   const [data, setData] = useState(null);
