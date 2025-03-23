@@ -21,9 +21,11 @@
 .character-page-description {
   width: calc((100% - 30px) / 2);
   border-radius: 15px;
-  overflow: hidden;
 }
 
+.character-page-img {
+  overflow: hidden;
+}
 .character-page-description {
   display: flex;
   flex-direction: column;
@@ -43,6 +45,7 @@
 .character-page > section > div > div {
   margin-top: 30px;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 15px;
 }
@@ -50,8 +53,5 @@
 @media (max-width: 1200px) {
   .character-page .container {
     padding: 0 20px;
-  }
-  .character-page-description {
-    overflow: visible;
   }
 }
