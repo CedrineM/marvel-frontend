@@ -6,6 +6,7 @@
 
 .favorites {
   margin: 30px 0;
+  height: calc(100vh - 210px);
 }
 
 .favorites .container {
