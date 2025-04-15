@@ -14,6 +14,7 @@ const Character = ({
   isConnected,
   visible,
 }) => {
+  const urlBack = import.meta.env.VITE_API_URL;
   //add-remove favorite
   const handleAddRemoveFavorite = async () => {
     if (isConnected) {
@@ -30,7 +31,7 @@ const Character = ({
       //ajoute ou suppression à la base de donnée
       try {
         await axios.post(
-          `https://site--backend-marvel--vphy6y45v8nk.code.run/favorite`,
+          `${urlBack}/favorite`,
           { item: character, type: "characters" },
           { headers: { Authorization: `Bearer ${isConnected}` } }
         );
