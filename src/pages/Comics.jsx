@@ -11,6 +11,7 @@ const Comics = ({ isConnected, setVisible, visible }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [favorites, setFavorites] = useState([]);
   const urlBack = import.meta.env.VITE_API_URL;
+  console.log(urlBack);
   const handleChange = (event) => {
     setFilters({ ...filters, [event.target.name]: event.target.value });
     setCurrentPage(1);
@@ -19,9 +20,12 @@ const Comics = ({ isConnected, setVisible, visible }) => {
   useEffect(() => {
     const fetchFavorites = async () => {
       try {
-        const favoriteResponse = await axios.get(`${urlBack}/favorites`, {
-          headers: { Authorization: `Bearer ${isConnected}` },
-        });
+        const favoriteResponse = await axios.get(
+          `${import.meta.env.VITE_API_URL}/favorites`,
+          {
+            headers: { Authorization: `Bearer ${isConnected}` },
+          }
+        );
         const tabFavorites = favoriteResponse.data.map((fav) => {
           return fav.item._id;
         });
@@ -33,7 +37,7 @@ const Comics = ({ isConnected, setVisible, visible }) => {
     fetchFavorites();
     const fetchData = async () => {
       try {
-        let url = `${urlBack}/comics?page=${currentPage}`;
+        let url = `${import.meta.env.VITE_API_URL}/comics?page=${currentPage}`;
         if (filters.title) {
           url += `&title=${filters.title}`;
         }
