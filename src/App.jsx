@@ -11,7 +11,6 @@ import Cookies from "js-cookie";
 import Favorites from "./pages/Favorites";
 import Footer from "./components/Footer";
 
-// https://site--backend-marvel--vphy6y45v8nk.code.run/
 function App() {
   const [isConnected, setIsConnected] = useState(false);
   const [visible, setVisible] = useState({

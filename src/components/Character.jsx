@@ -30,7 +30,7 @@ const Character = ({
       //ajoute ou suppression à la base de donnée
       try {
         await axios.post(
-          `${import.meta.env.VITE_API_URL}/favorite`,
+          `https://site--backend-marvel--vphy6y45v8nk.code.run/favorite`,
           { item: character, type: "characters" },
           { headers: { Authorization: `Bearer ${isConnected}` } }
         );

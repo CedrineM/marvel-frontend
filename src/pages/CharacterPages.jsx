@@ -16,7 +16,7 @@ const CharacterPage = ({ isConnected, setVisible, visible }) => {
     const fetchFavorites = async () => {
       try {
         const favoriteResponse = await axios.get(
-          `${import.meta.env.VITE_API_URL}/favorites`,
+          `https://site--backend-marvel--vphy6y45v8nk.code.run/favorites`,
           {
             headers: { Authorization: `Bearer ${isConnected}` },
           }
@@ -34,7 +34,7 @@ const CharacterPage = ({ isConnected, setVisible, visible }) => {
       try {
         // récupération des comics liés au personnage
         const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/comics/${id}`
+          `https://site--backend-marvel--vphy6y45v8nk.code.run/comics/${id}`
         );
 
         setData(response.data);

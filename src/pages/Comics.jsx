@@ -20,7 +20,7 @@ const Comics = ({ isConnected, setVisible, visible }) => {
     const fetchFavorites = async () => {
       try {
         const favoriteResponse = await axios.get(
-          `${import.meta.env.VITE_API_URL}/favorites`,
+          `https://site--backend-marvel--vphy6y45v8nk.code.run/favorites`,
           {
             headers: { Authorization: `Bearer ${isConnected}` },
           }
@@ -38,7 +38,7 @@ const Comics = ({ isConnected, setVisible, visible }) => {
     }
     const fetchData = async () => {
       try {
-        let url = `${import.meta.env.VITE_API_URL}/comics?page=${currentPage}`;
+        let url = `https://site--backend-marvel--vphy6y45v8nk.code.run/comics?page=${currentPage}`;
         if (filters.title) {
           url += `&title=${filters.title}`;
         }

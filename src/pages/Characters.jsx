@@ -20,7 +20,7 @@ const Characters = ({ isConnected, setVisible, visible }) => {
     const fetchFavorites = async () => {
       try {
         const favoriteResponse = await axios.get(
-          `${import.meta.env.VITE_API_URL}/favorites`,
+          `https://site--backend-marvel--vphy6y45v8nk.code.run//favorites`,
           {
             headers: { Authorization: `Bearer ${isConnected}` },
           }
