@@ -11,8 +11,6 @@ const Characters = ({ isConnected, setVisible, visible }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [favorites, setFavorites] = useState([]);
 
-  const urlBack = import.meta.env.VITE_API_URL;
-
   const handleChange = (event) => {
     setFilters({ ...filters, [event.target.name]: event.target.value });
     setCurrentPage(1);
@@ -21,9 +19,12 @@ const Characters = ({ isConnected, setVisible, visible }) => {
   useEffect(() => {
     const fetchFavorites = async () => {
       try {
-        const favoriteResponse = await axios.get(`${urlBack}/favorites`, {
-          headers: { Authorization: `Bearer ${isConnected}` },
-        });
+        const favoriteResponse = await axios.get(
+          `${import.meta.env.VITE_API_URL}/favorites`,
+          {
+            headers: { Authorization: `Bearer ${isConnected}` },
+          }
+        );
         const tabFavorites = favoriteResponse.data.map((fav) => {
           return fav.item._id;
         });
@@ -32,10 +33,16 @@ const Characters = ({ isConnected, setVisible, visible }) => {
         console.log(error.favoriteResponse);
       }
     };
-    fetchFavorites();
+
+    if (isConnected) {
+      fetchFavorites();
+    }
+
     const fetchData = async () => {
       try {
-        let url = `${urlBack}/characters?page=${currentPage}`;
+        let url = `${
+          import.meta.env.VITE_API_URL
+        }/characters?page=${currentPage}`;
         if (filters.name) {
           url += `&name=${filters.name}`;
         }

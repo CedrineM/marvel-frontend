@@ -9,17 +9,18 @@ const CharacterPage = ({ isConnected, setVisible, visible }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [favorites, setFavorites] = useState([]);
 
-  const urlBack = import.meta.env.VITE_API_URL;
-
   const params = useParams();
   const { id } = params;
 
   useEffect(() => {
     const fetchFavorites = async () => {
       try {
-        const favoriteResponse = await axios.get(`${urlBack}/favorites`, {
-          headers: { Authorization: `Bearer ${isConnected}` },
-        });
+        const favoriteResponse = await axios.get(
+          `${import.meta.env.VITE_API_URL}/favorites`,
+          {
+            headers: { Authorization: `Bearer ${isConnected}` },
+          }
+        );
         const tabFavorites = favoriteResponse.data.map((fav) => {
           return fav.item._id;
         });
@@ -32,7 +33,9 @@ const CharacterPage = ({ isConnected, setVisible, visible }) => {
     const fetchData = async () => {
       try {
         // récupération des comics liés au personnage
-        const response = await axios.get(`${urlBack}/comics/${id}`);
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_URL}/comics/${id}`
+        );
 
         setData(response.data);
         setIsLoading(false);

@@ -8,14 +8,17 @@ const Favorites = ({ isConnected }) => {
   const [favoriteData, setFavoriteData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [favoriteRemove, setFavoriteRemove] = useState(false);
-  const urlBack = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     if (isConnected) {
       const fetchFavorites = async () => {
         try {
-          const favoriteResponse = await axios.get(`${urlBack}/favorites`, {
-            headers: { Authorization: `Bearer ${isConnected}` },
-          });
+          const favoriteResponse = await axios.get(
+            `${import.meta.env.VITE_API_URL}/favorites`,
+            {
+              headers: { Authorization: `Bearer ${isConnected}` },
+            }
+          );
           setFavoriteData(favoriteResponse.data);
           setIsLoading(false);
           setFavoriteRemove(false);

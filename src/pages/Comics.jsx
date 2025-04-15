@@ -10,8 +10,7 @@ const Comics = ({ isConnected, setVisible, visible }) => {
   const [filters, setFilters] = useState({ title: "", limit: "" });
   const [currentPage, setCurrentPage] = useState(1);
   const [favorites, setFavorites] = useState([]);
-  const urlBack = import.meta.env.VITE_API_URL;
-  console.log(urlBack);
+
   const handleChange = (event) => {
     setFilters({ ...filters, [event.target.name]: event.target.value });
     setCurrentPage(1);
@@ -34,7 +33,9 @@ const Comics = ({ isConnected, setVisible, visible }) => {
         console.log(error.response);
       }
     };
-    fetchFavorites();
+    if (isConnected) {
+      fetchFavorites();
+    }
     const fetchData = async () => {
       try {
         let url = `${import.meta.env.VITE_API_URL}/comics?page=${currentPage}`;

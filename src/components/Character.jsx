@@ -14,7 +14,6 @@ const Character = ({
   isConnected,
   visible,
 }) => {
-  const urlBack = import.meta.env.VITE_API_URL;
   //add-remove favorite
   const handleAddRemoveFavorite = async () => {
     if (isConnected) {
@@ -31,7 +30,7 @@ const Character = ({
       //ajoute ou suppression à la base de donnée
       try {
         await axios.post(
-          `${urlBack}/favorite`,
+          `${import.meta.env.VITE_API_URL}/favorite`,
           { item: character, type: "characters" },
           { headers: { Authorization: `Bearer ${isConnected}` } }
         );
@@ -45,7 +44,6 @@ const Character = ({
     }
   };
 
-  const navigate = useNavigate();
   return (
     <div className="character-object">
       <div class="character-card-inner">
