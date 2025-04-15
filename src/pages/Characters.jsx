@@ -40,9 +40,7 @@ const Characters = ({ isConnected, setVisible, visible }) => {
 
     const fetchData = async () => {
       try {
-        let url = `${
-          import.meta.env.VITE_API_URL
-        }/characters?page=${currentPage}`;
+        let url = `https://site--backend-marvel--vphy6y45v8nk.code.run/characters?page=${currentPage}`;
         if (filters.name) {
           url += `&name=${filters.name}`;
         }
